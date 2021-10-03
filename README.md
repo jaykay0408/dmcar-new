@@ -8,7 +8,7 @@ Files
 			: $ python dmcar_lane.py -b 4
 
 - dmcar_model.py	: lane follower using NVIDIA CNN model
-			: $ python dmcar_model.py -b 4 -m [model_name]
+			: $ python dmcar_model.py -b 4 -m
                         : MODEL: lane_navigation.model
 
 - dmcar_coral.py	: Stop NoStop model using pre-trained MobileNet V2
@@ -30,10 +30,6 @@ Files
 - test-control.py	: test program for controlling servos
 
 - test-servo.py		: test program for servo
-
-- picar			: directory for servoes (2 back wheels and 1 front
-			: wheels) in a car
-			: mostly doesn't have to change
 
 - model_stop_not_stop	: directory for building stop_not_stop.model for
 			: dmcar.py
