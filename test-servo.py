@@ -2,66 +2,67 @@
 **********************************************************************
 * Filename    : test-servo.py
 * Description : test for server
-* Update      : Lee    2019-02-08    New release
+* Update      : Lee    2021-09-01    New release
 **********************************************************************
 '''
-
-from picar import back_wheels, front_wheels
-import picar
+# Import New Picar Libraries
+import sys
+sys.path.append(r'/opt/ezblock')
+from ezblock import __reset_mcu__
 import time
+__reset_mcu__()
+time.sleep(0.01)
 
-picar.setup()
-db_file = "/home/pi/dmcar-student/picar/config"
-fw = front_wheels.Front_Wheels(debug=False, db=db_file)
-bw = back_wheels.Back_Wheels(debug=False, db=db_file)
+from picarmini import dir_servo_angle_calibration
+from picarmini import forward
+from ezblock import delay
+from picarmini import backward
+from picarmini import set_dir_servo_angle
+from picarmini import stop
 
-bw.ready()
-fw.ready()
- 
-SPEED = 50
+SPEED = 30
 
 # ============== Back wheels =============
 # 'bwready':
-#bw.ready()
+#forward(SPEED)
 
 for i in range(10, 101,10):
-    bw.speed = i
-    bw.forward()
+    forward(i)
     time.sleep(2)
-	
+
 # 'forward':
-bw.speed = SPEED
-bw.forward()
+forward(SPEED)
 time.sleep(1)
-		
+
 # 'backward':
-bw.speed = SPEED
-bw.backward()
+backward(SPEED)
 time.sleep(1)
 
 # 'stop':
-bw.stop()
+stop()
 
 # ============== Front wheels =============
 # Turn Left
-fw.turn_left()
+set_dir_servo_angle(-30)
 time.sleep(1)
 
 # Straight
-fw.turn_straight()
+set_dir_servo_angle(0)
 time.sleep(1)
 
 # Turn Right
-fw.turn_right()
+set_dir_servo_angle(30)
 time.sleep(1)
 
 # Straight
-fw.turn_straight()
+set_dir_servo_angle(0)
+time.sleep(1)
 
 # Angle 45 degree to 135 degree
 for i in range(45, 135, 5):
     print(i)
-    fw.turn(i)
+    set_dir_servo_angle(i-90)
     time.sleep(1)
 
-fw.turn(90)
+set_dir_servo_angle(0)
+stop()
