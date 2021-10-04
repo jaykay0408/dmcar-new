@@ -184,7 +184,7 @@ def main():
 
             # Replace r.id number based on label file
             #if r.id == 4:
-            if r.id == 12:
+            if r.id == 5:
                 proba = r.score
                 stop1 = proba
                 print(text)
