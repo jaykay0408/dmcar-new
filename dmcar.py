@@ -274,7 +274,8 @@ def main():
             set_dir_servo_angle(ANGLE-90)
         elif keycmd == 'z':
             isMoving = False
-            forward(0)
+	    SPEED = 0
+            forward(SPEED)
 
     # if we are not using a video file, stop the camera video stream
     writer.release()
