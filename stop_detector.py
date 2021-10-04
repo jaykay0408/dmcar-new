@@ -70,6 +70,7 @@ while True:
 		if not STOP and TOTAL_CONSEC >= TOTAL_THRESH:
 			# indicate that stop has been found
 			STOP = True
+			label = "Stop"
 			print("Stop Sign...")
 
 	# otherwise, reset the total number of consecutive frames and the
