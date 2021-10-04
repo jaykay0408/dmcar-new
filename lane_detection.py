@@ -379,7 +379,7 @@ def steer_car(q, frames, set_dir_servo_angle, args):
     while True:
         # Steering a car using ANGLE
         ANGLE = q.get()
-        print("Steering Angle ->", ANGLE)
+        #print("Steering Angle ->", ANGLE)
         set_dir_servo_angle(ANGLE-90)
         q.task_done()
 
