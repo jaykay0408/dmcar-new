@@ -2,42 +2,46 @@
 **********************************************************************
 * Filename    : test-control.py
 * Description : test control for servo
-* Update      : Lee    2019-02-09    New release
+* Update      : Lee    2021-09-01    New release
 **********************************************************************
 '''
-from picar import back_wheels, front_wheels
-import picar
+# Import New Picar Libraries
+import sys
+sys.path.append(r'/opt/ezblock')
+from ezblock import __reset_mcu__
 import time
+__reset_mcu__()
+time.sleep(0.01)
 
-picar.setup()
-db_file = "/home/pi/dmcar-student/picar/config"
-fw = front_wheels.Front_Wheels(debug=False, db=db_file)
-bw = back_wheels.Back_Wheels(debug=False, db=db_file)
-
-bw.ready()
-fw.ready()
+from picarmini import dir_servo_angle_calibration
+from picarmini import forward
+from ezblock import delay
+from picarmini import backward
+from picarmini import set_dir_servo_angle
+from picarmini import stop
 
 SPEED = 0
-bw.speed = SPEED
+forward(0)
 
 while True:
     key = input("> ")
-    SPEED = 50
+    SPEED = 30
 
     if key == 'q':
         break
     elif key == 'w':
-        bw.speed = SPEED
-        bw.forward()
+        forward(SPEED)
     elif key == 'x':
-        bw.speed = SPEED
-        bw.backward()
+        backward(SPEED)
     elif key == 'a':
-        fw.turn_left()
+        set_dir_servo_angle(-25)
     elif key == 'd':
-        fw.turn_right()
+        set_dir_servo_angle(25)
     elif key == 's':
-        fw.turn_straight()
+        set_dir_servo_angle(0)
     elif key == 'z':
-        bw.stop()
+        set_dir_servo_angle(0)
+        forward(0)
+        stop()
+
 
