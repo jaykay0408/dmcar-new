@@ -123,7 +123,7 @@ def main():
         cv2.imshow('blend', org_frame)
 
         if isMoving:
-            set_dir_servo_angle(ANGLE)
+            set_dir_servo_angle(ANGLE - 90)
 
         # Video Writing
         if writer is None:
