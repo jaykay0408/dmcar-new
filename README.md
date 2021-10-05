@@ -41,7 +41,7 @@ project GitHub site
 
 ## Phase 1: Assembly an Autonomous Vehicle
 
-Assembly Instruction at http://bit.ly/DMCAR1
+Assembly Instruction at http://bit.ly/DMCAR1NEW
 
 As an autonomous vehicle for this lab, we are going to use "Smart
 Video Car Kit V2.0 for Raspberry Pi" as below:
@@ -53,16 +53,13 @@ Video Car Kit V2.0 for Raspberry Pi" as below:
 
 You can assembly a car using the instruction included in a box. However,
 the quality of printed images is not clear, so you should be very
-careful to assembly the car. The only difference point is the location
-of camera. In order to provide a wide angle of camera, you can setup a
-camera in a middle of body (instead of the front) as shown in a figure
-below.
-
-![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/image2.jpg)
+careful to assembly the car. 
 
 Note that pan and tilt servos for a camera will not be used for the
 project. However, you still need to install them to mount a camera
 correctly. In case a new USB camera (wide-angle) is used, you can mount a USB camera on pan and tilt part.
+
+![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/picar-new-camera.jpg)
 
 In addition, you need to follow the instruction “Servo Calibration” before you secure 3 servos (pan, tilt and steering).  
 
