@@ -228,7 +228,7 @@ login Raspberry Pi using VNC viewer (or ssh).
 Start virtualenv (name 'picar3')
 
     $ workon picar3
-    $ cd dmcar-new
+    (picar3) $ cd dmcar-new
 
 dmcar-new consist of the following files and directory:
 
