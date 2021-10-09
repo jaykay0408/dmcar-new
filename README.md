@@ -1,4 +1,4 @@
-# AtoI Lab : Autonomous Car using Deep Learning and Computer Vision
+# AtoI Lab : Autonomous Car using Deep Learning and Computer Vision (PiCar-X Ver.)
 Autonomous Car project in AtoI Lab : New PiCar (PiCar-X) Version
 
 -   If you are using PiCar, i.e., Picar V2.0, go to https://github.com/jaykay0408/dmcar-student
