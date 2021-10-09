@@ -163,7 +163,7 @@ For more information about the connection to Rapsberry Pi, you can refer the fol
         -   On your Raspberry Pi, sign in to VNC Server using your new
             RealVNC account credentials, i.e., e-mail and password:
             (right click VNC icon on top menu bar -\> click Licensing)
-        ![VNC Server dialog showing sign in](Images/image4.jpg)
+        ![VNC Server dialog showing sign in](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/image4.jpg)
 
     -   Install VNC viewer on your PC:
         <https://www.realvnc.com/en/connect/download/viewer/>
