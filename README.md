@@ -112,6 +112,7 @@ Note that if an instructor provides pre-configured SD Card, move to Step
         Otherwise, you can download 2 files from class Github
 
 **Step 3**: Connect to Raspberry Pi using USB Serial Cable
+
 If you know IP address of your Raspberry Pi, skip Step 3. Then, move to Step 4. This step is for setting-up wi-fi on your Raspberry Pi first time.
 For more information about the connection to Rapsberry Pi using USB Serial Cable, you can refer the following slide at http://bit.ly/DMCAR4 
 
@@ -129,6 +130,7 @@ For more information about the connection to Rapsberry Pi using USB Serial Cable
 -   [Step 6] Check IP address
 
 **Step 4**: Connect to Raspberry Pi using VNC viewer
+
 For more information about the connection to Rapsberry Pi, you can refer the following slide at http://bit.ly/DMCAR3 
 
 -   ***Option 1***: directly setup wi-fi using a mice, a keyboard and a
