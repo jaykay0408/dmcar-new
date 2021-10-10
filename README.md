@@ -340,7 +340,7 @@ You will use a popular, open-source computer vision package, called OpenCV, to h
 -   There are several options you can try:
     -   "-v", "--video": path to the output video clip header, e.g., -v out_video
     -   "-b", "--buffer": max buffer size, default=5
-    -   "-f", "--file": ath for the training file header, e.g., -f out_file. Files will be stored at ~/dmcar_student/model_lane_follow/train_data
+    -   "-f", "--file": ath for the training file header, e.g., -f out_file. Files will be stored at ~/dmcar_new/model_lane_follow/train_data
 
 [![Alt text](https://img.youtube.com/vi/QBpU1hVyHRM/0.jpg)](https://www.youtube.com/watch?v=QBpU1hVyHRM)
 
