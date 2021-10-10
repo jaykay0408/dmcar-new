@@ -205,7 +205,7 @@ For more information about the connection to Rapsberry Pi, you can refer the fol
 ## Phase 3: Download Programs and Configuration
 In order to focus on main goal of the project, i.e., applying a deep
 learning algorithms into an autonomous vehicle, an instructor provides a
-package of programs and libraries for an autonomous vehicle. DM-Car has
+package of programs and libraries for an autonomous vehicle. DM-Car-New has
 the following functionalities:
 -   Lane detection both straight and curve lanes
 -   Controlling back wheel servos
@@ -243,7 +243,7 @@ dmcar-new consist of the following files and directory:
     $ python dmcar.py -b 4
     ```
     3.  MODEL: stop_not_stop.model
-    4.  You need to handle mainly this file to operate DM-Car
+    4.  You need to handle mainly this file to operate DM-Car-New
 -   dmcar_lane.py
     1.  main file to control autonomous car (lane only)
     2.  To run the program
@@ -294,7 +294,7 @@ dmcar-new consist of the following files and directory:
         forward(SPEED)
         ```
     5. SPEED
-        - Speed of DM-Car: range from 0 to 100
+        - Speed of DM-Car-New: range from 0 to 100
         - For testing purpose: 25 \~ 50 
     6. ANGLE
         - 90 (Straight), 45 (45 left), 135 (45 right)
