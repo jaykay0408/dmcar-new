@@ -45,7 +45,7 @@ project GitHub site
 Assembly Instruction at http://bit.ly/DMCAR1NEW
 
 As an autonomous vehicle for this lab, we are going to use "Smart
-Video Car Kit V2.0 for Raspberry Pi" as below:
+Video Car Kit PiCar-X for Raspberry Pi" as below:
 -   Model: Sunfounder PiCar-X - Smart Video Robot Car Kit for Raspberry Pi
 -   Name in this project: DM-Car-New
 -   URL: <https://www.sunfounder.com/products/picar-x>
