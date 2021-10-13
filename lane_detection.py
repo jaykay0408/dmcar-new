@@ -350,7 +350,7 @@ def compute_steering_angle_model(frame, model):
     X = np.asarray([preprocessed])
     steering_angle = model.predict(X)[0]
 
-    print('new steering angle: %s' % steering_angle)
+    #print('new steering angle: %s' % steering_angle)
     return int(steering_angle + 0.5) # round the nearest integer
 
 
