@@ -14,6 +14,7 @@ from pycoral.utils.edgetpu import make_interpreter
 
 from keras.preprocessing.image import img_to_array
 from keras.models import load_model
+import tensorflow as tf
 from collections import deque
 from imutils.video import VideoStream
 import numpy as np
@@ -93,7 +94,10 @@ def main():
     interpreter.allocate_tensors()
 
     # Grab the reference to the webcam
-    vs = VideoStream(src=-1).start()
+    #vs = VideoStream(src=-1).start()
+    vs = cv2.VideoCapture(-1)
+    vs.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+    vs.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 
     # detect lane based on the last # of frames
     frame_buffer = deque(maxlen=args["buffer"])
@@ -134,12 +138,12 @@ def main():
     while True:
         stop1 = stop2 = notStop1 = notStop2 = 0.0
         # grab the current frame
-        frame = vs.read()
+        ret, frame = vs.read()
         if frame is None:
             break
 
         # resize the frame (width=320 or width=480)
-        frame = imutils.resize(frame, width=480)
+        frame = imutils.resize(frame, width=320)
         (h, w) = frame.shape[:2]
 
         # crop for COCO model (i.e., whole frame)
@@ -292,12 +296,13 @@ def main():
             set_dir_servo_angle(ANGLE-90)
         elif keycmd == 'z':
             isMoving = False
-	    SPEED = 0
+            SPEED = 0
             forward(SPEED)
 
     # if we are not using a video file, stop the camera video stream
-    writer.release()
-    vs.stop()
+    if writer is not None:
+        writer.release()
+    vs.release()
 
     # initialize picar
     forward(0)
