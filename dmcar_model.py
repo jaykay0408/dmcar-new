@@ -24,6 +24,7 @@ import datetime
 import math
 import os
 from keras.models import load_model
+import tensorflow as tf
 
 # Import New Picar Libraries
 import sys
@@ -55,6 +56,7 @@ MODEL_PATH = "./models/lane.model"
 
 # to hide warning message for tensorflow
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 #picar.setup()
 #db_file = "/home/pi/dmcar-student/picar/config"
@@ -75,7 +77,10 @@ def main():
     model = load_model(MODEL_PATH)
 
     # Grab the reference to the webcam
-    vs = VideoStream(src=0).start()
+    #vs = VideoStream(src=0).start()
+    vs = cv2.VideoCapture(-1)
+    vs.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+    vs.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 
     # detect lane based on the last # of frames
     frame_buffer = deque(maxlen=args["buffer"])
@@ -100,13 +105,13 @@ def main():
     # initialize the total number of frames that *consecutively* contain
     # stop sign along with threshold required to trigger the sign alarm
     TOTAL_CONSEC = 0
-    TOTAL_THRESH = 3		# fast speed-> low, slow speed -> high
+    TOTAL_THRESH = 2		# fast speed-> low, slow speed -> high
     STOP_SEC = 0
 
     # keep looping
     while True:
         # grab the current frame
-        frame = vs.read()
+        ret, frame = vs.read()
         if frame is None:
             break
 
@@ -177,12 +182,17 @@ def main():
             set_dir_servo_angle(ANGLE-90)
         elif keycmd == 'z':
             isMoving = False
-	    SPEED = 0
+            SPEED = 0
             forward(SPEED)
     
     # if we are not using a video file, stop the camera video stream
-    writer.release()
-    vs.stop()
+    if writer is not None:
+        writer.release()
+    vs.release()
+
+    # initialize picar
+    forward(0)
+    set_dir_servo_angle(0)
 
     # close all windows
     cv2.destroyAllWindows()
