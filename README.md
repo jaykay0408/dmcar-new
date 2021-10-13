@@ -670,6 +670,8 @@ You must use Github for your documentation
 
 - Line.py               : Line class
 
+- find-resolution.py    : find available resolution for USB camera
+
 - stop_detector.py      : test program for stop/non-stop CNN model
                         : $ python stop_detector.py
 - test-control.py       : test program for controlling servos
