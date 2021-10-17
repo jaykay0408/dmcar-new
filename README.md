@@ -355,7 +355,7 @@ You will use a deep learning approach to make our picar follow lane autonomously
     ```
 -   Create a dataset by driving pycar 
     ```
-    (picar3) $ python dmcar.py -b 4 -f data
+    (picar3) $ python dmcar_lane.py -b 4 -f data
     # Check if training files are created successfully at ~/dmcar_new/model_lane_follow/train_data
     ``` 
 -   Run training. This will take 2 ~ 3 hours depending on size of dataset
@@ -369,7 +369,7 @@ You will use a deep learning approach to make our picar follow lane autonomously
     ```
 -   Run dmcar_model.py file to test the model
     ```
-    (picar3) $ dmcar.py -b 4 -m lane.model
+    (picar3) $ dmcar_model.py -b 4 -m lane.model
     ```
 
 [![Alt text](https://img.youtube.com/vi/73mKrprmRVM/0.jpg)](https://www.youtube.com/watch?v=73mKrprmRVM)
