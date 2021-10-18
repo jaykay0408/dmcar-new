@@ -217,10 +217,12 @@ the following functionalities:
 -   Deep Learning Models for Autonomous Car
     -   Stop Not-Stop Model: CNN LeNet model
     -   Lane Follower Model: Nvidia CNN model
+    -   Lane Follower Model: Nvidia CNN model
+       -   [Google Colab 1](https://colab.research.google.com/drive/1VCmkeobbYvh64DlpT0UEQHre7lETHLla) 
     -   Stop Not-Stop Image Classification Model: "Stop No-Stop model" by Retrain a classification model for Edge TPU using post-training quantization (with TF2)
-       -   [Google Colab 1](https://colab.research.google.com/drive/1s-1x8KnNcI5fphLC_yqo7BxsoSWow-1i)   
+       -   [Google Colab 2](https://colab.research.google.com/drive/1s-1x8KnNcI5fphLC_yqo7BxsoSWow-1i)   
     -   Traffic Sign Object Detection Model: "Traffic Sign Model" by Retrain EfficientDet for the Edge TPU with TensorFlow Lite Model Maker (with TF2)
-       -   [Google Colab 2](https://colab.research.google.com/drive/1TXbcYvZ4TAkbzwqfQ_4KVvp4z51HztDO)
+       -   [Google Colab 3](https://colab.research.google.com/drive/1TXbcYvZ4TAkbzwqfQ_4KVvp4z51HztDO)
 
 First, download the autonomous vehicle DM-Car-New program from Github site. First,
 login Raspberry Pi using VNC viewer (or ssh).
@@ -369,10 +371,34 @@ You will use a deep learning approach to make our picar follow lane autonomously
     ```
 -   Run dmcar_model.py file to test the model
     ```
-    (picar3) $ dmcar_model.py -b 4 -m lane.model
+    (picar3) $ dmcar_model.py -b 4
     ```
 
 [![Alt text](https://img.youtube.com/vi/73mKrprmRVM/0.jpg)](https://www.youtube.com/watch?v=73mKrprmRVM)
+
+If you want to save the time to create a model, you can use Colab as below:
+
+-   Create a dataset (image) for Google Colab
+    ```
+    (picar3) $ cd ~/dmcar-student/model_lane_follow
+    (picar3) $ tar cvzf train_data.tgz train_data
+    ```
+-   Upload train_data.tgz file to Google Drive "data" folder. 
+    -   If you do not have "data" folder, you need to creat it first
+-   On Rapsberry Pi, start Web Browser (click circle shape earth on top menu bar)
+-   [Goto Google Colab 3](https://colab.research.google.com/drive/1VCmkeobbYvh64DlpT0UEQHre7lETHLla)
+    - You can click a short cut on "Bookmark Bar" (Lane Follow ...) 
+    - Run cell by cell OR Run All-Cell
+-   When finishing the Colab, model file will be downloaded to your /home/pi/Downloads. Move the downloaded model file to models directory
+    ```
+    (picar3) $ cd ~
+    (picar3) $ mv ./Downloads/lane_navigation_check.h5 ./dmcar-student/models/lane.model
+-   If model name is different from "lane.model", change
+    MODEL\_PATH at dmcar_model.py
+    ```
+    # define the paths to the Nvidia learning model
+    MODEL_PATH = "./models/lane.model"
+    ```
 
 ## Phase 5: Creating Models for Traffic Signs
 In this phase, you are going to create Deep Learning model to classify or detect traffic signs (starting from "Stop Sign", then extend to other traffic signs including "Speed", "Traffic Signal", and others.
@@ -435,7 +461,7 @@ To create training model for traffic signs, use Colab for MobileNet V2 classifie
 -   Upload stop_nostop.tgz file to Google Drive "data" folder. 
     -   If you do not have "data" folder, you need to creat it first
 -   On Rapsberry Pi, start Web Browser (click circle shape earth on top menu bar)
--   [Goto Google Colab 1](https://colab.research.google.com/drive/1s-1x8KnNcI5fphLC_yqo7BxsoSWow-1i#scrollTo=j4QOy2uA3P_p)
+-   [Goto Google Colab 2](https://colab.research.google.com/drive/1s-1x8KnNcI5fphLC_yqo7BxsoSWow-1i#scrollTo=j4QOy2uA3P_p)
     - You can click a short cut on "Bookmark Bar" (Stop Nostop ...) 
     - Run cell by cell OR Run All-Cell
 -   When finishing the Colab, model file will be downloaded to your /home/pi/Downloads. Move the downloaded model file to models directory
@@ -509,7 +535,7 @@ To create re-training model for traffic signs, use Colab for EfficientDet-Lite d
 -   Upload data.tgz file to Google Drive "data" folder. 
     -   If you do not have "data" folder, you need to creat it first
 -   On Rapsberry Pi, start Web Browser (click circle shape earth on top menu bar)
--   [Goto Google Colab 2](https://colab.research.google.com/drive/1TXbcYvZ4TAkbzwqfQ_4KVvp4z51HztDO)
+-   [Goto Google Colab 3](https://colab.research.google.com/drive/1TXbcYvZ4TAkbzwqfQ_4KVvp4z51HztDO)
     - You can click a short cut on "Bookmark Bar" (Traffic Sign ...) 
     - Run cell by cell OR Run All-Cell
 -   When finishing the Colab, model file will be downloaded to your /home/pi/Downloads. Move the downloaded model file to models directory
@@ -691,6 +717,7 @@ You must use Github for your documentation
 
 - model_lane_follow     : directory for building dataset of lane follower
                         : dmcar_model.py
+                        : [Nvidia model](https://colab.research.google.com/drive/1VCmkeobbYvh64DlpT0UEQHre7lETHLla) 
 
 - Stop No Stop model    : Google Colab to create Stop NoStop model
                         : [Classification model](https://colab.research.google.com/drive/1s-1x8KnNcI5fphLC_yqo7BxsoSWow-1i) 
