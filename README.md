@@ -224,6 +224,8 @@ the following functionalities:
     -   Traffic Sign Object Detection Model: "Traffic Sign Model" by Retrain EfficientDet for the Edge TPU with TensorFlow Lite Model Maker (with TF2)
        -   [Google Colab 3](https://colab.research.google.com/drive/1TXbcYvZ4TAkbzwqfQ_4KVvp4z51HztDO)
 
+Before you start DM-Car-New program, you MUST disable "Serial Console" connection by following the [[Step 7] at Disable Serial Console](https://docs.google.com/presentation/d/1zXqesVGjif6C4xJn3CrnMdR4UdoRNeHSZ65wBbgX728/#slide=id.gf9f8eeabff_3_6).
+
 First, download the autonomous vehicle DM-Car-New program from Github site. First,
 login Raspberry Pi using VNC viewer (or ssh).
  
